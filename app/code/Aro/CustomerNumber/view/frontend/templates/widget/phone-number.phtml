@@ -1,0 +1,12 @@
+<?php
+
+/** @var \Aro\CustomerNumber\Block\Widget\PhoneNumber $block */
+
+?>
+
+<div class="field telephone">
+    <label class="label" for="phone_number"><span><?= __('Phone Number') ?></span></label>
+    <div class="control">
+        <input type="text" name="phone_number" id="phone_number" class="input-text" required value="<?= $block->escapeHtmlAttr($block->getPhoneNumber()) ?>" />
+    </div>
+</div>
