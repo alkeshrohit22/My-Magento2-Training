@@ -10,8 +10,12 @@
     <script type="text/x-magento-init">
         {
              "#free-shipping-banner" : {
-                "Magento_Ui/js/core/app" : <?= $block->getJsLayout() ?>
+                "Magento_Ui/js/core/app" :<?= $block->getJsLayout() ?>
              }
         }
+    </script>
+
+    <script>
+        window.freeShippingThreshold = '<?php echo $block->getFreeShippingAmount(); ?>';
     </script>
 <?php endif; ?>

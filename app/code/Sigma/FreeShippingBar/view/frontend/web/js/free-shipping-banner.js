@@ -23,6 +23,8 @@ define([
             this._super();
             var self = this;
             var cart = customerData.get('cart');
+            var fixedValue = parseFloat(self.getThresholdAmount());
+            console.log(cart());
 
             customerData.getInitCustomerData().done(function () {
                 if(!_.isEmpty(cart()) && !_.isUndefined(cart().subtotalAmount)) {
@@ -39,25 +41,29 @@ define([
             self.message = ko.computed(function() {
 
                 // subTotal == 0 and undefined then return messageDefault
-                if(self.subTotal === 0 || _.isUndefined(self.subTotal) ) {
+                if(self.subTotal === fixedValue || _.isUndefined(self.subTotal) ) {
                     return self.messageDefault;
                 }
                 // subTotal > 0 and subTotal < 300 then return messageItemInCart
-                if(self.subTotal > 0 && self.subTotal < 300) {
+                if(self.subTotal > 0 && self.subTotal < fixedValue) {
 
-                    var freeShipRemainTotal = 300 - self.subTotal;
+                    var freeShipRemainTotal = self.getThresholdAmount() - self.subTotal;
                     var formattedSubtotalRemain = self.formatCurrency(freeShipRemainTotal);
                     return self.messageItemInCart.replace('{amount}', formattedSubtotalRemain);
                 }
                 // subTotal > 300 return messageFreeShipping
-                if(self.subTotal >= 300) {
+                if(self.subTotal >= fixedValue) {
                     return self.messageFreeShipping;
                 }
             });
-            console.log('Free shipping bar component loaded!!!' + this.message);
         },
         formatCurrency: function (value) {
             return '$' + value.toFixed(2);
+        },
+
+        getThresholdAmount: function()
+        {
+            return window.freeShippingThreshold;
         }
     });
 })
