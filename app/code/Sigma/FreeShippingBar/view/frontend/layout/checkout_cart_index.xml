@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <referenceContainer name="cart.summary">
+        <block name="free.shipping.banner" template="Sigma_FreeShippingBar::free-shipping-banner.phtml" before="-">
+            <arguments>
+                <argument name="jsLayout" xsi:type="array">
+                    <item name="components" xsi:type="array">
+                        <item name="free-shipping-banner" xsi:type="array">
+                            <item name="component" xsi:type="string">Sigma_FreeShippingBar/js/free-shipping-banner</item>
+                            <item name="config" xsi:type="array">
+                                <item name="messageDefault" xsi:type="string">Free shipping on order over $300</item>
+                                <item name="messageItemInCart" xsi:type="string">You are {amount} away from free shipping.</item>
+                                <item name="messageFreeShipping" xsi:type="string">Congratulations!! You are eligible for free shipping.</item>
+                            </item>
+                        </item>
+                    </item>
+                </argument>
+            </arguments>
+        </block>
+    </referenceContainer>
+</page>
