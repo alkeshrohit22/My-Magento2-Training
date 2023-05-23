@@ -4,7 +4,7 @@
     <acl>
         <resources>
             <resource id="Magento_Backend::admin">
-                <resource id="Sigma_FreeShippingBar::freeshippingbar" title="Free Shipping" translate="title" sordOrder="2500" />
+                <resource id="Sigma_FreeShippingBar::freeshippingbar" title="Free Shipping" translate="title" sortOrder="2500" />
             </resource>
         </resources>
     </acl>

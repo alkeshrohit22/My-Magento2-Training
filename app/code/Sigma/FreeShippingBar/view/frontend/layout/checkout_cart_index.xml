@@ -2,7 +2,7 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <referenceContainer name="cart.summary">
-        <block name="free.shipping.banner" template="Sigma_FreeShippingBar::free-shipping-banner.phtml" before="-">
+        <block class="Sigma\FreeShippingBar\Block\Freeshipping" name="free.shipping.banner" template="Sigma_FreeShippingBar::free-shipping-banner.phtml" before="-">
             <arguments>
                 <argument name="jsLayout" xsi:type="array">
                     <item name="components" xsi:type="array">

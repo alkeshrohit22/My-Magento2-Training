@@ -1,15 +1,17 @@
 <?php
-/** @var $block Magento\Framework\View\Element\Template */
+/** @var $block Sigma\FreeShippingBar\Block\Freeshipping */
 ?>
 
-<div id="free-shipping-banner" data-bind="scope: 'free-shipping-banner'">
-    <!-- ko template:getTemplate() --><!-- /ko -->
-</div>
+<?php if ($block->isFreeShippingEligible()): ?>
+    <div id="free-shipping-banner" data-bind="scope: 'free-shipping-banner'">
+        <!-- ko template:getTemplate() --><!-- /ko -->
+    </div>
 
-<script type="text/x-magento-init">
-    {
-         "#free-shipping-banner" : {
-            "Magento_Ui/js/core/app" :<?= $block->getJsLayout() ?>
-         }
-    }
-</script>
+    <script type="text/x-magento-init">
+        {
+             "#free-shipping-banner" : {
+                "Magento_Ui/js/core/app" : <?= $block->getJsLayout() ?>
+             }
+        }
+    </script>
+<?php endif; ?>

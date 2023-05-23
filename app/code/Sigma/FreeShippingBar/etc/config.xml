@@ -2,11 +2,11 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
     <default>
-        <helloworld>
+        <freeshippingbar>
             <general>
-                <enable>1</enable>
-                <display_text>Hello World</display_text>
+                <is_enable>1</is_enable>
+                <free_shipping_amount>300</free_shipping_amount>
             </general>
-        </helloworld>
+        </freeshippingbar>
     </default>
 </config>
