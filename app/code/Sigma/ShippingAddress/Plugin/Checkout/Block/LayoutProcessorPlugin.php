@@ -15,27 +15,35 @@ class LayoutProcessorPlugin
         LayoutProcessor $subject,
         array $jsLayout
     ){
-        $jsLayout['components']['checkout']['children']['steps']['children']['shipping-step']['children']
-        ['shippingAddress']['children']['shipping-address-fieldset']['children']['middle_name'] = [
+
+        $customMiddleNameCode = 'middle_name';
+
+        $customField = [
             'component' => 'Magento_Ui/js/form/element/abstract',
             'config' => [
-                'customScope' => 'shippingAddress.middle_name',
+                'customScope' => 'shippingAddress.custom_attributes',
                 'customEntry' => null,
                 'template' => 'ui/form/field',
                 'elementTmpl' => 'ui/form/element/input',
-                'options' => [],
-                'id' => 'middle-name'
+                'tooltip' => [
+                    'description' => 'This is Middle name field',
+                ],
             ],
-            'dataScope' => 'shippingAddress.middle_name.middle_name',
+            'dataScope' => 'shippingAddress.custom_attributes' . '.' .$customMiddleNameCode,
             'label' => 'Middle Name',
             'provider' => 'checkoutProvider',
             'visible' => true,
             'validation' => [
                 'required-entry' => true
             ],
+            'options' => [],
+            'filterBy' => null,
             'sortOrder' => 25,
-            'id' => 'middle-name'
+            'value' => ''
         ];
+
+        $jsLayout['components']['checkout']['children']['steps']['children']['shipping-step']['children']
+        ['shippingAddress']['children']['shipping-address-fieldset']['children'][$customMiddleNameCode] = $customField;
 
         return $jsLayout;
     }

@@ -35,7 +35,7 @@ define(
 
 
                 // getting value from middle name input field
-                var customMiddleName = $('[name="middle_name[middle_name]"]').val();
+                var customMiddleName = $('[name="custom_attributes[middle_name]"]').val();
 
                 payLoad = {
                     addressInformation: {
@@ -44,10 +44,12 @@ define(
                         'shipping_method_code': quote.shippingMethod()['method_code'],
                         'shipping_carrier_code': quote.shippingMethod()['carrier_code'],
                         'extension_attributes' : {
-                            middle_name : customMiddleName
+                            middleName : customMiddleName
                         }
                     }
                 };
+
+
 
                 fullScreenLoader.startLoader();
 
@@ -65,7 +67,7 @@ define(
                         errorProcessor.process(response);
                         fullScreenLoader.stopLoader();
                     }
-                )
+                );
             }
         };
     });
