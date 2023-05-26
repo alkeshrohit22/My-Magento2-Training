@@ -348,10 +348,13 @@ return [
         'Magento_WishlistSampleData' => 1,
         'Aro_CustomerNumber' => 1,
         'Aro_RemovePagination' => 1,
+        'Macademy_CustomCheckout' => 1,
+        'Macademy_CustomerQue' => 1,
         'Macademy_InventoryFulfillment' => 1,
-        'My_Company' => 1,
         'PayPal_Braintree' => 1,
         'PayPal_BraintreeGraphQl' => 1,
+        'Sigma_FreeShippingBar' => 1,
+        'Sigma_ShippingAddress' => 1,
         'Temando_ShippingRemover' => 1
     ]
 ];
